@@ -19,5 +19,3 @@ This is my simple Progressive Web App template, it is an easy start to creating 
 
 5. Set up GitHub actions for minify
 
----
-Testing commit with GPG signing
