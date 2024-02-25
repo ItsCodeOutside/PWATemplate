@@ -18,3 +18,6 @@ This is my simple Progressive Web App template, it is an easy start to creating 
 4. Come up with a scheme for CRUD content control.
 
 5. Set up GitHub actions for minify
+
+---
+Testing commit with GPG signing
