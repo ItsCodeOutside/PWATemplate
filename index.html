@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Add a description for your site here">
+    <title>PWA Template</title>
+    <link rel="manifest" href="manifest.json">
+    <style>
+        :root {
+            --header-bg-color: floralwhite;
+            --link-color: blue;
+            --link-hover: rgb(0,110,220);
+            --fonts: system-ui, 'Segoe UI', Roboto, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', sans-serif;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+            font-family: var(--fonts);
+        }
+        nav {
+            display: flex;
+            flex-direction: column;
+            padding: 0.5em;
+            min-height: 2em;
+        }
+        header {
+                background-color: var(--header-bg-color);
+            }
+        main {
+            flex-direction: column;
+            padding: 0.5em;
+        }
+        footer {
+            margin-top: auto;
+            display: flex;
+            justify-content: center;
+        }
+        footer * {
+            margin: auto;
+        }
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+            color: var(--link-hover);
+        }
+        @media (min-width: 992px) {
+            nav {
+                flex-direction: row;
+            }
+            .header-container {
+                flex-shrink: 0;
+            }
+            #navbarNav {
+                display: block !important;
+            }
+            #navbarNav ul {
+                padding: 1em, 0;
+                margin: 0;
+            }
+            #navbarNav ul li {
+                display: inline-block;
+            }
+            #navbarNav ul li:not(:first-child) {
+                margin-left: 0.5em;
+            }
+        }
+        @media (max-width: 992px) {
+            .header-container {
+                display: flex;
+                justify-content: space-between;
+            }
+            .navbar-toggler {
+                display: block !important;
+                padding: 0.2em;
+            }
+            #navbarNav ul {
+                margin: 0;
+            }
+            #navbarNav ul li {
+                list-style-type: none;
+                display: block;
+            }
+        }
+        .brand{
+            font-size: 1.5em;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .brand:hover{
+            text-decoration: none;
+        }
+        .install-pwa {
+            margin-left: 1em;
+        }
+        .install-pwa::before {
+            content: "💾";
+        }
+        .install-pwa::after {
+            content: "💾";
+        }
+        #menu-toggle, #navbarNav, .navbar-toggler {
+            display: none;
+        }
+        #menu-toggle:checked ~ #navbarNav {
+            display: block !important;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="header-container">
+                <a class="brand" data-tag="home" href="#" id="brandLink">PWA Template</a>
+                <label class="navbar-toggler" for="menu-toggle" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon">
+                        <svg viewbox="0 0 10 10" height="2em" width="2em">
+                            <title>Menu button</title>
+                            <g fill="none">
+                                <path stroke="black" d="M5 2 l215 0" />
+                                <path stroke="black" d="M5 4 l215 0" />
+                                <path stroke="black" d="M5 6 l215 0" />
+                            </g>
+                        </svg>
+                    </span>
+                </label>
+            </div>
+            <input type="checkbox" id="menu-toggle">
+            <div id="navbarNav">
+                <ul>
+                    <li class="nav-item">
+                        <a class="nav-link" data-tag="home" href="#" id="homeLink">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-tag="about" href="#" id="aboutLink">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-tag="tos" href="#" id="tosLink">Terms of Service</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div id="content"></div>
+    </main>
+    <footer class="mt-auto">
+        <span id="footerInfo">PWATemplate</span>
+        <span id="appVersion"></span>
+    </footer>
+    <script src="/js/app.js"></script>
+</body>
+</html>
