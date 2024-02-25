@@ -13,9 +13,11 @@ This is my simple Progressive Web App template, it is an easy start to creating 
 
 2. [✔] Update footer to gently display install option.
 
-3. Show install option in menu if not already installed.
+3. [✔] Show install option in menu if not already installed.
 
 4. Come up with a scheme for CRUD content control.
 
 5. Set up GitHub actions for minify
+
+6. Config for nav links
 

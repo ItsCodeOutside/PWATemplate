@@ -65,7 +65,8 @@ function getPageByLinkDataTag(e) {
 // Attempt to fetch the page and load its content. When PWA is installed, `fetch()` is intercepted and checks the cache first
 function getPage(pageName) {
     const pageUrl = `/pages/${pageName}.html`;
-    fetch(pageUrl).then(response => {
+    fetch(pageUrl).then(
+        (response) => {
         if(response.ok) {
             response.text().then(content => {
                 loadContent(content);
@@ -73,8 +74,16 @@ function getPage(pageName) {
             });
         }
         else {
-            throw new Error('Server returned: ' + response.status + ' ' + response.statusText);
+            if (response.status == 404) {
+                updateAddressBar(`?p=404`);
+                getPage('404');
+            }
+            else
+                console.log('Server returned: ' + response.status + ' ' + response.statusText);
         }
+    },
+    (rejected) => {
+        console.log('fetch rejected: ' + rejected);
     }).catch(error => {
         if (appRunMode == 'debug')
             console.log('fetch error: ' + error);
